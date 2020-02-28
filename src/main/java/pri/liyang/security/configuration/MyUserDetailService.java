@@ -19,16 +19,16 @@ public class MyUserDetailService implements UserDetailsService {
 
     /**
      * 重写UserDetailsService的方法，定义用户的校验逻辑
-     * @param s 登录传进来的用户名
+     * @param username 登录传进来的用户名
      * @return 带登录用户信息的实现了UserDetails的实例
      * @throws UsernameNotFoundException
      */
     @Override
-    public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         //TODO 通过username，从数据库获取到用户的所有信息
         //从数据库里面通过用户名查询到的用户密码（实际情况应该是直接取出加密后的密码）
         //这里暂时设置用户账号密码就是：用户名 + "123"
-        String password = new BCryptPasswordEncoder().encode(s + "123");
+        String password = new BCryptPasswordEncoder().encode(username + "123");
 
         //随机数类
         Random random = new Random();
@@ -44,7 +44,7 @@ public class MyUserDetailService implements UserDetailsService {
 
         //然后封装好从数据库获取的用户信息为实现了UserDetails接口的自定义User类
         User user = new User();
-        user.setUsername(s);
+        user.setUsername(username);
         user.setPassword(password);
         user.setAge(age);
         user.setAddress(address);
