@@ -1,4 +1,4 @@
-package pri.liyang.security.Model;
+package pri.liyang.security.model;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;

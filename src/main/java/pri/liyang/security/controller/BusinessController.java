@@ -3,7 +3,7 @@ package pri.liyang.security.controller;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-import pri.liyang.security.Model.User;
+import pri.liyang.security.model.User;
 
 /**
  * @Author: LiYang
